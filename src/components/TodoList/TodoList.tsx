@@ -164,7 +164,9 @@ export const TodoList: React.FC<Props> = ({
               data-cy="TodoLoader"
               className={classNames('modal overlay', {
                 'is-active':
-                  updatingTodoId === todo.id || deletingTodoId === todo.id,
+                  updatingTodoId === todo.id ||
+                  deletingTodoId === todo.id ||
+                  isPosting,
               })}
             >
               <div className="modal-background has-background-white-ter" />
