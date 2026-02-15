@@ -11,6 +11,7 @@ import { Loader } from './components/Loader/Loader';
 import { deleteTodo, getTodos, patchTodos, USER_ID } from './api/todos';
 import { Filter } from './types/Filter';
 import { ErrorMessage } from './types/Errors';
+import { Error } from './components/Error';
 
 export const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -197,15 +198,7 @@ export const App: React.FC = () => {
         )}
       </div>
 
-      <div
-        data-cy="ErrorNotification"
-        className={`
-        notification is-danger is-light has-text-weight-normal ${errorMessage ? '' : 'hidden'}
-        `}
-      >
-        <button data-cy="HideErrorButton" type="button" className="delete" />
-        {errorMessage}
-      </div>
+      <Error errorMessage={errorMessage} />
     </div>
   );
 };
